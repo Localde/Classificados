@@ -1,3 +1,4 @@
+<?php require 'config.php'; ?>
 <html>
 <head>
     <title>Classificados</title>
@@ -14,8 +15,13 @@
                 <a hre="./" class="navbar-brand">Classificados</a>
             </div>
             <ul class="nav  navbar-bar navbar-right">
-                <li><a href="">Cadastre-se</a></li>
-                <li><a href="">Login</a></li>
+                <?php if(isset($_SESSION['CLogin']) && !empty($_SESSION['cLogin'])): ?>
+                    <li><a href="meus-anuncios.php">Meus Anúncios</a></li>
+                    <li><a href="sair.php">Sair</a></li>
+                <?php else: ?>
+                    <li><a href="cadastre-se.php">Cadastre-se</a></li>
+                    <li><a href="login.php">Login</a></li>
+                <?php endif; ?>
             </ul>
         </div>
     </nav>
